@@ -1,5 +1,5 @@
 #include<stdio.h>
-/*int main(){
+int main(){
     for(int i = 1;i<=5;i++){
         int j = 1;
         while(j <=i){
@@ -18,7 +18,7 @@ int main(){
         printf("\n");
     }
     return 0;
-}*/
+}
 int main(){
     int c = 'A';
     for(int i = 1;i<=6;i++){
