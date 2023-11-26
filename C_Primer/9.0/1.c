@@ -1,4 +1,5 @@
 #include<stdio.h>
+//指针排序
 /*void order(double *a,double *b,double *c){
     double temp;
     if(*a>*b){
@@ -27,7 +28,7 @@ int main(){
 }*/
 
 //计算的x的n次幂
-double power(double x,int n);
+/*double power(double x,int n);
 int main(){
     double x,xpow;
     int n;
@@ -59,4 +60,4 @@ double power(double x,int n){
         }
         return 1/pow;
     }
-}
+}*/
