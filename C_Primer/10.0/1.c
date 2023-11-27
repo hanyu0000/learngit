@@ -55,7 +55,7 @@ void show_arr(int n,int m,const double arr[n][m]){
 }*/
 
 //13
-void input_arr(double *arr[5]);
+/*void input_arr(double *arr[5]);
 double col_average(const double *arr);
 double arr_average(const double *arr[5]);
 double arr_max(const double *arr[5]);
@@ -106,4 +106,4 @@ void show(const double *arr[5]){
         }   
         printf("\n");
     }
-}
+}*/
