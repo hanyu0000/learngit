@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 //1
-char* read_char(char* st);
+/*char* read_char(char* st);
 int main(int argc,char *argv[]){
     char test[40];
     printf("输入一串字符:");
@@ -18,7 +18,7 @@ char* read_char(char* st){
 }
 
 //7.mystrncpy
-/*char* mystrncpy(char* dest,char* src,int n);
+char* mystrncpy(char* dest,char* src,int n);
 int main(){
     const int size = 80;
     char destination[size],source[size];
@@ -50,3 +50,53 @@ char* mystrncpy(char* dest,char* src,int n){
     }
     return dest;
 }*/
+
+//strchr
+#define SIZE 80
+char* mystrchr(char* str,char c);
+/*int main(int argc,char *argv[]){
+    char source[SIZE];
+    char c = ' ';
+    char* str;
+    puts("enter a string:");
+    fgets(source,SIZE,stdin);
+    while(c != '\n'){
+        puts("enter a char to find:");
+        while((c = getchar()) == '\n')
+            continue;
+        str = mystrchr(source,c);
+        if(str != NULL)
+            printf("find the char '%c' in the %p:",*str,str);
+        else
+            printf("'%c' not found:",c);
+    }
+    return 0;
+}*/
+char* mystrchr(char* str,char c){
+    while(*str != '\0'){
+        if(*str == c)
+            return str;
+        str++;
+    }
+    return NULL;
+}
+
+char* str(char* str);
+int main(int argc,char *argv[]){
+    char string[SIZE];
+    char* p = NULL;
+    puts("enter a string:");
+    fgets(string,SIZE,stdin);
+    p = str(string);
+    printf("%s",string);
+    return 0;
+}
+char* str(char* s){
+    int length = strlen(s);
+    char temp[length];
+    for(int i = 0;i<length;i++)
+        *(temp + i) = *(s + length-1-i);
+    for(int i = 0;i<length;i++)
+        *(s + i) = *(temp + i);
+    return s;
+}
