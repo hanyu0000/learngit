@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 //1
-/*char* read_char(char* st);
+char* read_char(char* st);
 int main(int argc,char *argv[]){
     char test[40];
     printf("输入一串字符:");
@@ -15,7 +15,7 @@ char* read_char(char* st){
         st[i] = getchar();
     }while(st[i] != EOF && ++i < 40);
     return st;
-}*/
+}
 
 //7.mystrncpy
 /*char* mystrncpy(char* dest,char* src,int n);

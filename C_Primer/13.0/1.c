@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-/*int main(int argc,char* argv[]){
+int main(int argc,char* argv[]){
     int ch;
     FILE *fp;
     unsigned long count = 0;
@@ -21,7 +21,6 @@
     printf("file %s has %lu characters\n",argv[1],count);
     return 0;
 }
-
 
 int main(int argc,char* argv[]){
     int ch;
@@ -51,4 +50,4 @@ int main(int argc,char* argv[]){
     if(fclose(in) != 0 || fclose(out) != 0)
         fprintf(stderr,"enter in closing files\n");
     return 0;
-}*/
+}

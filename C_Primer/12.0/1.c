@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 //6.
-/*int main(){
+int main(){
     int date[11];
     int datum;
     for(int i = 1;i<=10;i++){
@@ -40,4 +40,4 @@ int main(){
     }
     free(pst);
     return 0;
-}*/
+}

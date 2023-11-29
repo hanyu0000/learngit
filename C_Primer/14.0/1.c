@@ -5,18 +5,19 @@
 #define AUTL 40
 #define BKS 80
 #define SLEN 81
+char* s_gets(char* st,int n);
 struct book {
     char title[TITE];
     char author[AUTL];
     float value;
 };
-/*int main(){
+int main(){
     struct book library[BKS];
     int count = 0;
     puts("enter the title");
-    while(count < BKS && fgets(library[count].title,TITE,stdin) != NULL && library[count].title[0] != '\0'){
+    while(count < BKS && s_gets(library[count].title,TITE) != NULL && library[count].title[0] != '\0'){
         puts("enter the author");
-        fgets(library[count].author,AUTL,stdin);
+        s_gets(library[count].author,AUTL);
         puts("enter the value");
         scanf("%f",&library[count++].value);
         while(getchar() != '\n')
@@ -32,8 +33,21 @@ struct book {
     else
         puts("no books ?");
     return 0;
-}*/
-
+}
+char* s_gets(char* st,int n){
+    char* ret;
+    char* find;
+    ret = fgets(st,n,stdin);
+    if(ret){
+        find = strchr(st,'\n');
+        if(find)
+            *find = '\0';  
+        else
+            while(getchar() != '\n')
+                continue;
+    }
+    return ret;
+}
 
 struct namect{
     char* fname;
@@ -55,11 +69,11 @@ void cleanup(struct namect *);
 void get(struct namect * pst){
     char ch[SLEN];
     puts("enter your first name");
-    gets(ch);
+    s_gets(ch,SLEN);
     pst->fname = (char*)malloc(strlen(ch)+1);
     strcpy(pst->fname,ch);
     puts("enter your last name");
-    gets(ch);
+    s_gets(ch,SLEN);
     pst->lname = (char*)malloc(strlen(ch)+1);
     strcpy(pst->lname,ch);
 }
