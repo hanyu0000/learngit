@@ -8,7 +8,7 @@ struct node* findxx(struct node* header,int n);
 void delete(struct node* header,int x);
 void plist(struct node* header);   
 void reorder(struct node* header);
-void renode(struct node** header);
+void renode(struct node* header);
 struct node{
     int date;
     struct node *next;
@@ -21,18 +21,18 @@ int main(){
     //头插
     puts("--------inlist--1-5--------");
     int i = 1;
-    while(i<=5){
+    while(i<=500){
         inlist(header,i);
         i++;
-        plist(header);
     }
+    plist(header);
     //尾插
     puts("---------inlast--1-5------");
-    while(i<=10){
+    while(i<=1000){
         inlast(header,i);
         i++;
-        plist(header);
-    };
+    }
+    plist(header);
     //查date
     puts("---------fin--2--------");
     ppp = find(header,2);
@@ -54,7 +54,7 @@ int main(){
     puts("---------reorder----------");
     reorder(header);
     puts("---------free----------");
-    renode(&header);
+    renode(header);
     return 0;
 }
 
@@ -99,17 +99,18 @@ struct node* findxx(struct node* header,int n){
     return  p;
 }
 void delete(struct node* header,int x){
-    struct node* p ;
-    struct node* pir;
-    p = header->next;
-    pir = header;
-    while(p != NULL && p->date != x){
-        p = p->next;
-        pir = pir->next;
-    }
-    if(p != NULL){
-        pir->next = p->next;
-        free(p);
+    struct node* p = header->next;
+    struct node* pir = header;
+    while(p != NULL){
+        if(p->date == x){
+            pir->next = p->next;
+            free(p);
+            break;
+        }
+        else{
+            pir = p;
+            p = p->next;
+        }
     }
 }
 void plist(struct node* header){
@@ -138,13 +139,13 @@ void reorder(struct node* header){
     header->next = new_last;
     plist(header);
 }
-void renode(struct node** header){
-    struct node* p = *header;
+void renode(struct node* header){
+    struct node* p = header;
     struct node* nextnode;
     while(p != NULL){
         nextnode = p->next;
         free(p);
         p = nextnode;
     }
-    *header = NULL;
+    header = NULL;
 }
